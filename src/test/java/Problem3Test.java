@@ -34,8 +34,20 @@ public class Problem3Test {
 
     @Test
     public void testInOrderTraverse() {
-        // homework
-        // to verify inOrderTraverse(TreeNode<Integer> node)
+        TreeNode<Integer> root = new TreeNode<>(10);
+        root.left = new TreeNode<>(9);
+        root.right = new TreeNode<>(11);
+        root.left.left = new TreeNode<>(8);
+        root.right.right = new TreeNode<>(13);
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(8);
+        expected.add(9);
+        expected.add(10);
+        expected.add(11);
+        expected.add(13);
+
+        assertEquals(expected, inOrderTraverse(root)); // It does work!
     }
 
     private static List<Integer> inOrderTraverse(TreeNode<Integer> node) {
@@ -144,11 +156,10 @@ public class Problem3Test {
         //      1
         //     / \
         //    N   N
-        // homework
         // what problem can you see for insertInBst from this test case?
-        // answer:
+        // answer: The number will be inserted to the right, it will be unbalance.
         // discuss how you would solve it in a comment below
-        // answer:
+        // answer: adjust tree to keep the balanced(switch root nodes or something ....).
         root = new TreeNode<>(1);
         testCases.add(new BSTTestCase<>(root, 2, Arrays.asList(1, 2)));
         testCases.add(new BSTTestCase<>(root, 3, Arrays.asList(1, 2, 3)));
